@@ -1,0 +1,98 @@
+.process {
+  padding: 0 20px 32px;
+
+  @media (min-width: @tablet-width) {
+    padding: 45px 30px 47px;
+    border-bottom: 1px solid @gray-400;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding: 71px 110px 0;
+  }
+}
+
+.process__list {
+  @media (min-width: @tablet-width) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 280px;
+    column-gap: 60px;
+    row-gap: 37px;
+    counter-reset: numb;
+  }
+
+  @media (min-width: @desktop-width) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 80px;
+  }
+}
+
+.process__item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 60px;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  margin: 10px 0;
+  counter-increment: numb;
+
+  @media (min-width: @tablet-width) {
+    display: block;
+    padding: 150px 0 57px;
+  }
+}
+
+.process__item::after {
+  @media (min-width: @tablet-width) {
+    content: counter(numb);
+    font-size: 280px;
+    line-height: 240px;
+
+    color: @gray-500;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+}
+
+.process__item::before {
+  content: "";
+  width: 60px;
+  height: 60px;
+  background-position: center;
+
+  @media (min-width: @tablet-width) {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.process__item:first-child::before {
+  background-image: url("../img/index/Group.png");
+}
+
+.process__item:nth-child(2)::before {
+  background-image: url("../img/index/water.png");
+}
+
+.process__item:nth-child(3)::before {
+  background-image: url("../img/index/dish.png");
+}
+
+.process__item:nth-child(4)::before {
+  background-image: url("../img/index/clock.png");
+}
+
+@media (max-width: @mobile-width-only) {
+  .process__item p {
+    br {
+      display: none;
+    }
+  }
+}
